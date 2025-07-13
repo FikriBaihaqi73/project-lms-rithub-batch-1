@@ -25,6 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/v1/courses/{categoryId}', [HomeController::class, 'getCoursesByCategory'])
         ->name('home.courses.byCategory');
 
+    Route::get('/v1/courses/contents/{courseId}', [CourseController::class, 'getCourseContents'])
+        ->name('course.contents');
+    Route::post('/v1/courses/finished', [CourseController::class, 'finishedCourse'])
+        ->name('course.finished');
 });
 
 Route::put('/optimation', [OptimationController::class, 'optimation']);
